@@ -133,7 +133,7 @@ public class CMSPage extends GenericModel {
      * @return
      */
     public CMSPage next() {
-        return CMSPage.find("template = ?1 AND published = true AND created > ?2 order by created desc",template,  created).first();
+        return CMSPage.find("template = ?1 AND published = true AND created > ?2 order by created asc",template,  created).first();
     }
 
     @Override

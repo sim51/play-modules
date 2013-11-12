@@ -5,6 +5,8 @@
 #
 # ~~~~
 
+GET     /public/                                                          staticDir:public
+
 # Admin
 GET      /admin/cms                                                       cms.Admin.index
 GET      /admin/cms/new                                                   cms.Admin.addPage
@@ -24,4 +26,6 @@ GET     /image/{name}                                                     cms.Fr
 GET     /image                                                            cms.Frontend.image
 GET     /rss/{template}                                                   cms.Frontend.rss
 GET     /{pageName}                                                       cms.Frontend.show
+
+
 
