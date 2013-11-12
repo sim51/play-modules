@@ -1,9 +1,3 @@
-# This file defines all module routes (Higher priority routes first)
-#
-# import these routes in the main app as :
-# *     /                       module:cms
-#
-# ~~~~
 
 GET     /public/                                                          staticDir:public
 
@@ -11,7 +5,7 @@ GET     /public/                                                          static
 GET      /admin/cms                                                       cms.Admin.index
 GET      /admin/cms/new                                                   cms.Admin.addPage
 POST     /admin/cms/upload                                                cms.Admin.upload
-GET		 /admin/cms/imagelist.js                                          cms.Admin.imagelist
+GET      /admin/cms/imagelist.js                                          cms.Admin.imagelist
 POST     /admin/cms/page                                                  cms.Admin.savePage
 POST     /admin/cms/ajax/{name}                                           cms.Admin.ajaxSaveBody
 GET      /admin/cms/page                                                  cms.Admin.savePage
@@ -21,11 +15,10 @@ GET      /admin/cms/unpublish/{id}                                        cms.Ad
 *        /public/Filemanager/connectors/play/filemanager.play             cms.Admin.filemanager
 GET      /admin/cms/{pageName}                                            cms.Admin.editPage
 
+GET     /public/                                                          staticDir:public
+
 #Frontend
 GET     /image/{name}                                                     cms.Frontend.image
 GET     /image                                                            cms.Frontend.image
 GET     /rss/{template}                                                   cms.Frontend.rss
 GET     /{pageName}                                                       cms.Frontend.show
-
-
-

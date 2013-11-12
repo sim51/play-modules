@@ -38,5 +38,4 @@ GET     /                       securesocial.SecureSocial.authenticate
 POST    /p/{type}               securesocial.SecureSocial.authByPost
 POST    /p                      securesocial.SecureSocial.authByPost
 
-GET     /public/                                staticDir:public
-
+GET     /public/                staticDir:public
