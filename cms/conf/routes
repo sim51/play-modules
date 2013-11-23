@@ -1,6 +1,3 @@
-
-GET     /public/                                                          staticDir:public
-
 # Admin
 GET      /admin/cms                                                       cms.Admin.index
 GET      /admin/cms/new                                                   cms.Admin.addPage
