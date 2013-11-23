@@ -1,6 +1,5 @@
 package controllers.cms;
 
-import controllers.Secure;
 import controllers.Security;
 import models.cms.CMSFile;
 import models.cms.CMSPage;
@@ -19,25 +18,23 @@ public class Frontend extends Controller {
      *
      * @param pageName
      */
-	public static void show(String pageName) {
-		CMSPage page = CMSPage.findById(pageName);
-		notFoundIfNull(page);
-        if(page.template.equals("Fragment")){
+    public static void show(String pageName) {
+        CMSPage page = CMSPage.findById(pageName);
+        notFoundIfNull(page);
+        if (page.template.equals("Fragment")) {
             notFound();
         }
-        if(page.published) {
-		    renderTemplate("/cms/" + page.template + ".html", page);
-        }
-        else {
+        if (page.published) {
+            renderTemplate("/cms/" + page.template + ".html", page);
+        } else {
             boolean hasProfile = Security.check("admin");
-            if(hasProfile){
+            if (hasProfile) {
                 renderTemplate("/cms/" + page.template + ".html", page);
-            }
-            else {
+            } else {
                 forbidden();
             }
         }
-	}
+    }
 
     /**
      * Display a CMS template object to RSS.
@@ -56,11 +53,11 @@ public class Frontend extends Controller {
      *
      * @param name
      */
-	public static void image(String name) {
-		CMSFile image = CMSFile.findById(name);
+    public static void image(String name) {
+        CMSFile image = CMSFile.findById(name);
         response.contentType = image.data.type();
-		renderBinary(image.data.get());
-	}
+        renderBinary(image.data.get());
+    }
 
     /**
      * Render an CMSFile.
@@ -68,6 +65,7 @@ public class Frontend extends Controller {
     public static void image() {
         String name = params.get("name");
         CMSFile image = CMSFile.findById(name);
+        notFoundIfNull(image);
         response.contentType = image.data.type();
         renderBinary(image.data.get());
     }

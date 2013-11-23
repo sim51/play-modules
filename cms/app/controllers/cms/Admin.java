@@ -62,7 +62,7 @@ public class Admin extends Controller {
      *
      * @param page
      */
-    public static void savePage(@Valid CMSPage page) {
+    public static void savePage(@Valid CMSPage page, String imageId) {
         String template = page.template;
         if (request.params.get("delete") != null) {
             page.delete();
@@ -71,6 +71,17 @@ public class Admin extends Controller {
         if (validation.hasErrors()) {
             renderTemplate("@edit", page, template);
         }
+
+        if(imageId != null && !imageId.isEmpty()) {
+            CMSFile file = CMSFile.findById(imageId);
+            if(file != null) {
+                page.image = file;
+            }
+        }
+        else {
+            page.image = null;
+        }
+
         page.save();
         flash.success("Saved");
 

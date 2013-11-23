@@ -1,15 +1,14 @@
 package models.cms;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
 import play.data.validation.Required;
 import play.db.jpa.Blob;
 import play.db.jpa.GenericModel;
 import play.modules.search.Field;
 import play.modules.search.Indexed;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 import java.util.List;
 

@@ -9,10 +9,7 @@ import play.modules.search.Indexed;
 import play.templates.Template;
 import play.templates.TemplateLoader;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -40,6 +37,9 @@ public class CMSPage extends GenericModel {
     @Field
     @MaxSize(255)
     public String keywords;
+
+    @ManyToOne
+    public CMSFile image;
 
     @Lob
     @Field

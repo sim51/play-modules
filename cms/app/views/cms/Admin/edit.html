@@ -80,6 +80,24 @@
         </div>
     </div>
 
+    <!-- Field image -->
+    <div class="control-group #{ifError 'page.image'}error#{/ifError}">
+        <label class="control-label" for="image">
+            &{'cms.page.image'}
+            <a class="form-tooltip" href="#" data-toggle="tooltip" data-placement="right" title="&{'cms.page.image.help'}"><i class="icon-info-sign"></i></a>
+        </label>
+        <div class="controls">
+            <button type="button" class="btn btn-primary" onclick="BrowseServer('image');">&{'cms.page.image.parcourir'}</button>
+            <button type="button" class="btn btn-danger" onclick="document.getElementById('image').src = '#';document.getElementById('imageId').value = '';">&{'cms.page.image.reset'}</button>
+            <br/>
+            <img id="image" src="@{cms.Frontend.image()}?name=${page.image?.name}"/>
+            <input id="imageId" type="hidden" name="imageId" value="" />
+            #{if errors?.forKey('page.image')}
+                <span class="help-inline">#{error 'imageId' /}</span>
+            #{/if}
+        </div>
+    </div>
+
     <!-- Field body -->
     <div class="control-group #{ifError 'page.body'}error#{/ifError}">
         <label class="control-label" for="body">
@@ -119,4 +137,37 @@
             }
         } )
     });
-</script >
+</script>
+<script type="text/javascript">
+    // File Picker modification for FCK Editor v2.0 - www.fckeditor.net
+    // by: Pete Forde <pete@unspace.ca> @ Unspace Interactive
+    var urlobj;
+
+    function BrowseServer(obj)
+    {
+        urlobj = obj;
+        OpenServerBrowser(
+                '/public/Filemanager/index.html',
+                screen.width * 0.7,
+                screen.height * 0.7 ) ;
+    }
+
+    function OpenServerBrowser( url, width, height )
+    {
+        var iLeft = (screen.width - width) / 2 ;
+        var iTop = (screen.height - height) / 2 ;
+        var sOptions = "toolbar=no,status=no,resizable=yes,dependent=yes" ;
+        sOptions += ",width=" + width ;
+        sOptions += ",height=" + height ;
+        sOptions += ",left=" + iLeft ;
+        sOptions += ",top=" + iTop ;
+        var oWindow = window.open( url, "BrowseWindow", sOptions ) ;
+    }
+
+    function SetUrl( url, width, height, alt )
+    {
+        document.getElementById(urlobj).src = url ;
+        document.getElementById(urlobj + 'Id').value = url.replace('/image?name=', '');
+        oWindow = null;
+    }
+</script>

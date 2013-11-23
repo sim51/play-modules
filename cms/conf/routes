@@ -12,10 +12,11 @@ GET      /admin/cms/unpublish/{id}                                        cms.Ad
 *        /public/Filemanager/connectors/play/filemanager.play             cms.Admin.filemanager
 GET      /admin/cms/{pageName}                                            cms.Admin.editPage
 
-GET     /public/                                                          staticDir:public
-
 #Frontend
 GET     /image/{name}                                                     cms.Frontend.image
 GET     /image                                                            cms.Frontend.image
 GET     /rss/{template}                                                   cms.Frontend.rss
 GET     /{pageName}                                                       cms.Frontend.show
+
+
+GET     /public/                                                          staticDir:public
