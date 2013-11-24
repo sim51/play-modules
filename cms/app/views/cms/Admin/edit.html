@@ -30,7 +30,7 @@
                 <a class="form-tooltip" href="#" data-toggle="tooltip" data-placement="right" title="&{'cms.page.name.help'}"><i class="icon-info-sign"></i></a>
             </label>
             <div class="controls">
-                <input class="span12" type="text" id="name" name="page.name" placeholder="&{'cms.page.name.placeholder'}" value="${page?.name}" readonly="readpnly"/>
+                <input class="span12" type="text" id="name" name="page.name" placeholder="&{'cms.page.name.placeholder'}" value="${page?.name}" readonly="readonly"/>
                 #{if errors?.forKey('page.name')}
                     <span class="help-inline">#{error 'page.name' /}</span>
                 #{/if}
