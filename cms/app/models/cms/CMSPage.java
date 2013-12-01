@@ -31,7 +31,7 @@ public class CMSPage extends GenericModel {
 
     @Lob
     @Field
-    @MaxSize(150)
+    @MaxSize(255)
     public String description;
 
     @Field

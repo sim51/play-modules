@@ -88,10 +88,17 @@
         </label>
         <div class="controls">
             <button type="button" class="btn btn-primary" onclick="BrowseServer('image');">&{'cms.page.image.parcourir'}</button>
-            <button type="button" class="btn btn-danger" onclick="document.getElementById('image').src = '#';document.getElementById('imageId').value = '';">&{'cms.page.image.reset'}</button>
+            #{if page.image}
+                <button type="button" class="btn btn-danger" onclick="document.getElementById('image').src = '#';document.getElementById('imageId').value = '';">&{'cms.page.image.reset'}</button>
+            #{/if}
             <br/>
+            #{if page.image}
             <img id="image" src="@{cms.Frontend.image()}?name=${page.image?.name}"/>
-            <input id="imageId" type="hidden" name="imageId" value="" />
+            #{/if}
+            #{else}
+                <img id="image"/>
+            #{/else}
+            <input id="imageId" type="hidden" name="imageId" value="${page.image?.name}" />
             #{if errors?.forKey('page.image')}
                 <span class="help-inline">#{error 'imageId' /}</span>
             #{/if}
