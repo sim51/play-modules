@@ -9,7 +9,7 @@
 </div>
 
 <div class="control-group #{ifError 'confirmPassword'} error #{/ifError}">
-    <label class="control-label" for="confirmPassword">&{'securesocial.newPassword'}</label>
+    <label class="control-label" for="confirmPassword">&{'securesocial.confirmPassword'}</label>
     <div class="controls">
         <input id="confirmPassword" class="large" name="confirmPassword" type="password" value="${flash.confirmPassword}"/>
         #{ifError 'confirmPassword'}

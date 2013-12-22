@@ -25,7 +25,6 @@ GET     /reset                  securesocial.PasswordResetController.resetPasswo
 POST    /reset                  securesocial.PasswordResetController.sendEmail
 
 GET     /reset/{username}/{uuid} securesocial.PasswordResetController.changePassword
-#POST    /reset/{username}/{uuid} securesocial.PasswordResetController.doChange
 POST    /reset/execute           securesocial.PasswordResetController.doChange
 
 #
